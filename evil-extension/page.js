@@ -11,7 +11,35 @@ const MATCH_LIST = {
 };
 
 function transformTextNodes(node) {
-  // TODO(you): Implement this function! See HW spec for details.
+    // TODO(you): Implement this function! See HW spec for details.
+    var i,j;
+    var text=[];
+    if(node.nodeType === Node.TEXT_NODE)
+    {
+        var contain=node.textContent;
+        for (i of contain.split(" "))
+        {
+            console.log(i);
+            for (j of Object.keys(MATCH_LIST))
+            {
+                if(i == j+"\n" || i==j )
+                {
+                    i=MATCH_LIST[j];
+                    break;
+                }
+            }
+            text = text + i + ' ';
+        }
+        node.textContent=text;
+    }
+    for (const cnode of node.childNodes )
+    {
+        if (cnode==="STYLE" || cnode==="SCRIPT")
+        {
+            continue;
+        }
+        transformTextNodes(cnode);
+    }
 }
 
 transformTextNodes(document.body);
