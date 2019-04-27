@@ -50,3 +50,20 @@
     height: 50px;
     font-size: large;
 }
+@media (max-width: 700px)
+{
+    article
+    {
+        width: 95%;
+    }
+    header div span
+    {
+    }
+}
+@media (max-width: 500px)
+{
+    .container
+    {
+        width: 49%;
+    }
+}
