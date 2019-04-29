@@ -22,7 +22,7 @@ function transformTextNodes(node) {
             console.log(i);
             for (j of Object.keys(MATCH_LIST))
             {
-                if(i == j+"\n" || i==j )
+                if(i === j+"\n" || i===j )
                 {
                     i=MATCH_LIST[j];
                     break;
